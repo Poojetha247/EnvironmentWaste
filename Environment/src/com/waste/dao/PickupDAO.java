@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PickupDAO {
 
-    // Generate Pickup ID
+    
     public int generatePickupID() {
         String sql = "SELECT NVL(MAX(PICKUP_ID), 70000) + 1 FROM PICKUP_TBL";
         try (Connection con = DBUtil.getDBConnection();
@@ -25,7 +25,7 @@ public class PickupDAO {
         return 70001;
     }
 
-    // Insert Pickup
+  
     public boolean insertPickup(Connection con, Pickup p) throws SQLException {
 
         String sql =
@@ -55,7 +55,7 @@ public class PickupDAO {
         }
     }
 
-    // Update pickup completion
+  
     public boolean updateCompletion(Connection con, int id, int actualVol) throws SQLException {
 
         String sql =
@@ -70,7 +70,7 @@ public class PickupDAO {
         }
     }
 
-    // Find active pickups by zone
+    
     public List<Pickup> findActiveByZone(String zoneID) {
 
         List<Pickup> list = new ArrayList<>();
@@ -97,7 +97,7 @@ public class PickupDAO {
         return list;
     }
 
-    // Find active pickups by vehicle
+   
     public List<Pickup> findActiveByVehicle(String vehicleID) {
 
         List<Pickup> list = new ArrayList<>();
@@ -124,7 +124,6 @@ public class PickupDAO {
         return list;
     }
 
-    // Conflict check
     public List<Pickup> findConflicts(String vehicleID, Date date, String startTime) {
 
         List<Pickup> list = new ArrayList<>();
@@ -156,7 +155,7 @@ public class PickupDAO {
         return list;
     }
 
-    // Find pickup by ID
+    
     public Pickup findById(int id) {
 
         String sql =
@@ -181,7 +180,7 @@ public class PickupDAO {
         return null;
     }
 
-    // Map ResultSet to Pickup object
+    
     private Pickup mapPickup(ResultSet rs) throws SQLException {
 
         Pickup p = new Pickup();

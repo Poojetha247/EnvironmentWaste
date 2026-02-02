@@ -11,7 +11,7 @@ import java.sql.Date;
 public class WasteMain {
 	 private static WasteService service = new WasteService();
 	 public static void main(String[] args) throws ValidationException, VehicleNotSuitableException {
-	 // DEMO 1: Register Zone
+	
 	 Zone z = new Zone();
 	 z.setZoneID("ZN39");
 	 z.setZoneName("Commercial Hub West");
@@ -20,7 +20,7 @@ public class WasteMain {
 	 z.setStatus("ACTIVE");
 	 service.registerZone(z);
 	 System.out.println("Zone Registered");
-	 // DEMO 2: Register Vehicle
+	 
 	 Vehicle v = new Vehicle();
 	 v.setVehicleID("VH55");
 	 v.setVehicleType("Mini-Truck");
@@ -29,7 +29,7 @@ public class WasteMain {
 	 v.setStatus("AVAILABLE");
 	 service.registerVehicle(v);
 	 System.out.println("Vechile Registered");
-	 // DEMO 3: Schedule Pickup
+	
 	 java.sql.Date d = new 
 	java.sql.Date(System.currentTimeMillis());
 	 service.schedulePickup("ZN39","VH55",d,"06:30",900);
